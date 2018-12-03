@@ -131,8 +131,7 @@ public class addFlight extends Application{
 		});
 		confirmAdd.setOnAction(b->{
 			try {
-			Flight flight1=new Flight(flightNumberText.getText(),fDateText.getText(),DepartureTimeText.getText(),ArrivalTimeText.getText(),flightDurationText.getText(),
-					fToText.getText(),fFromText.getText(),AirlineNameText.getText(),Integer.parseInt(capacityText.getText()),0,DestinationAirportText.getText(),FlightPriceText.getText(),BoardingTimeText.getText(),flightIDText.getText());
+			Flight flight1=new Flight(flightNumText.getText(), departureDateText.getText(),DepartureTimeText.getText(),ArrivalTimeText.getText(), fToText.getText(),fFromText.getText(),AirlineNameText.getText(),Integer.parseInt(capacityText.getText()),0,DestinationAirportText.getText(),FlightPriceText.getText(),flightIDText.getText());
 					FlightDB.addFlight(flight1);
 					Addstage.close();
 					

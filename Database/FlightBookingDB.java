@@ -94,7 +94,7 @@ public class FlightBookingDB {
 			Connection connection = getConnection();
 			
 			try {
-				String Cssn= CustomerDB.getUserSSN(MainMenu.getUser());
+				String Cssn= CustomerDB.getUserSSN(homepage.getUser());
 				// select query to run
 				String str1="SELECT flightID, DepartureTime,ArrivalTime FROM Flight inner join booking on "+Cssn+"booking.cssn';";
 				
@@ -148,7 +148,7 @@ public class FlightBookingDB {
 				
 				ResultSet resultSet2 = statement2.executeQuery(str2);
 				while(resultSet2.next()) {
-				return new FlightBooking(resultSet2.getString("flightNum"),resultSet2.getString("DepartureDate"),resultSet2.getString("DepartureTime"),resultSet2.getString("ArrivalTime"),resultSet2.getString("FlightDuration"),resultSet2.getString("fTo"),resultSet2.getString("fFrom"),resultSet2.getString("AirlineName"),resultSet2.getInt("capacity"),resultSet2.getInt("BookedNum"),resultSet2.getString("DestinationAirport"),resultSet2.getString("Flight_Price"),resultSet2.getString("BoardingTime"),resultSet2.getString("flightID"));		
+				return new FlightBooking(resultSet2.getString("FlightNumber"),resultSet2.getString("DepartureDate"),resultSet2.getString("DepartureTime"),resultSet2.getString("ArrivalTime"),resultSet2.getString("DestinationCity"),resultSet2.getString("DepartureCity"),resultSet2.getString("AirlineName"),resultSet2.getInt("FlightCapacity"),resultSet2.getInt("BookedNumber"),resultSet2.getString("DestinationAirport"),resultSet2.getString("FlightPrice"),resultSet2.getString("flightID"));		
 
 			}} catch (Exception ex) {
 

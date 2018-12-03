@@ -20,7 +20,7 @@ public class Customer implements User {
 	
 	//constructor to fill info for user
 	public Customer(String firstName, String lastName, String username, String password, String address, String zipcode,
-			String state, String country, String email, String securityQuestion, String securityAnswer, String ssn) {
+			String state, String country, String email, String securityQuestion, String securityAnswer) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

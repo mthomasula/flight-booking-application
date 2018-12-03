@@ -164,8 +164,8 @@ public void start(Stage primaryStage) {
 		Connection connection=null;
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://localhost/WrightFlights?useSSL=false", "root",
-				"root"); 
+		connection = DriverManager.getConnection("jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightproject", "root",
+				"password"); 
 		}catch(Exception e) {
 			System.out.println("Cannot connect");
 		}
