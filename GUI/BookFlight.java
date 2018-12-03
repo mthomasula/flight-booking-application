@@ -1,6 +1,6 @@
 package GUI;
 
-import Database.BookingDB;
+import Database.FlightBookingDB;
 import javafx.stage.Stage;
 
 public class BookFlight {

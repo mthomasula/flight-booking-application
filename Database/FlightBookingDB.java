@@ -50,7 +50,7 @@ public class FlightBookingDB {
 		}
 		return true;
 	}
-	public static boolean checkCapacity() {
+	public static boolean checkCapacityOfFlight() {
 		try {
 			Connection connection = getConnection();
 			
@@ -94,7 +94,7 @@ public class FlightBookingDB {
 			Connection connection = getConnection();
 			
 			try {
-				String Cssn= CustomerDB.getUserSSN(homepage.getUsr());
+				String Cssn= CustomerDB.getUserSSN(MainMenu.getUser());
 				// select query to run
 				String str1="SELECT flightID, DepartureTime,ArrivalTime FROM Flight inner join booking on "+Cssn+"booking.cssn';";
 				
@@ -127,7 +127,7 @@ public class FlightBookingDB {
 	}
 	
 	
-	public static Booking createBooking() {
+	public static FlightBooking createBooking() {
 		try {
 			Connection connection = getConnection();
 			
@@ -148,7 +148,7 @@ public class FlightBookingDB {
 				
 				ResultSet resultSet2 = statement2.executeQuery(str2);
 				while(resultSet2.next()) {
-				return new Booking(resultSet2.getString("flightNum"),resultSet2.getString("DepartureDate"),resultSet2.getString("DepartureTime"),resultSet2.getString("ArrivalTime"),resultSet2.getString("FlightDuration"),resultSet2.getString("fTo"),resultSet2.getString("fFrom"),resultSet2.getString("AirlineName"),resultSet2.getInt("capacity"),resultSet2.getInt("BookedNum"),resultSet2.getString("DestinationAirport"),resultSet2.getString("Flight_Price"),resultSet2.getString("BoardingTime"),resultSet2.getString("flightID"));		
+				return new FlightBooking(resultSet2.getString("flightNum"),resultSet2.getString("DepartureDate"),resultSet2.getString("DepartureTime"),resultSet2.getString("ArrivalTime"),resultSet2.getString("FlightDuration"),resultSet2.getString("fTo"),resultSet2.getString("fFrom"),resultSet2.getString("AirlineName"),resultSet2.getInt("capacity"),resultSet2.getInt("BookedNum"),resultSet2.getString("DestinationAirport"),resultSet2.getString("Flight_Price"),resultSet2.getString("BoardingTime"),resultSet2.getString("flightID"));		
 
 			}} catch (Exception ex) {
 
@@ -159,10 +159,10 @@ public class FlightBookingDB {
 		} catch (Exception e) {
 		}
 	
-		return new Booking();
+		return new FlightBooking();
 	}
 	
-	public static void addBooking(Booking a) {
+	public static void addBooking(FlightBooking a) {
 			try {
 				Connection connection = getConnection();
 				// select query to run

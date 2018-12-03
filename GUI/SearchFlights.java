@@ -1,5 +1,4 @@
 package GUI;
-
 import java.sql.Connection;
 import GUI.AdminMain;
 import GUI.CustomerMain;
@@ -8,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import BusinessLogic.Booking;
+import BusinessLogic.FlightBooking;
 import BusinessLogic.Customer;
 import BusinessLogic.Flight;
-import Database.AdminDB;
-import Database.BookingDB;
+import Database.AdministratorDB;
+import Database.FlightBookingDB;
 import Database.CustomerDB;
 import Database.FlightDB;
 import javafx.application.Application;
@@ -53,7 +52,7 @@ public class SearchFlights extends Application implements EventHandler<ActionEve
 
 		Button userView = new Button("Main page");
 		userView.setOnAction(a -> {
-			if (AdminDB.isAdmin(homepage.getUsr())) {
+			if (AdministratorDB.isAdministrator(homepage.getUser())) {
 				primaryStage.close();
 				AdminMain main = new AdminMain();
 				main.start(new Stage());
@@ -159,13 +158,11 @@ public class SearchFlights extends Application implements EventHandler<ActionEve
 										+ "\nFormat for searches-\nTo/From: City STATE ex. Atlanta GA\nDate:MM-DD-YYYY\nTime: HH:MM ex. 17:45");
 					}
 					while (myResult.next()) {
-						data.add(new Flight(myResult.getString("flightNum"), myResult.getString("fDate"),
-								myResult.getString("DepartureTime"), myResult.getString("ArrivalTime"),
-								myResult.getString("FlightDuration"), myResult.getString("fTo"),
-								myResult.getString("fFrom"), myResult.getString("AirlineName"),
-								myResult.getInt("capacity"), myResult.getInt("BookedNum"),
-								myResult.getString("DestinationAirport"), myResult.getString("Flight_Price"),
-								myResult.getString("BoardingTime"), myResult.getString(1)));
+						data.add(new Flight(myResult.getString("flightNum"), myResult.getString("FlightDate"),
+								myResult.getString("DepartureTime"), myResult.getString("ArrivalTime"),myResult.getString("DestinationCity"),
+								myResult.getString("DepartureCity"), myResult.getString("AirlineName"),
+								myResult.getInt("FlightCapacity"), myResult.getInt("BookedNum"),
+								myResult.getString("DestinationAirport"), myResult.getString("FlightPrice"), myResult.getString(1)));
 						table.setItems(data);
 					}
 
@@ -189,24 +186,24 @@ public class SearchFlights extends Application implements EventHandler<ActionEve
 
 		bkFlight.setOnAction(f -> {
 			setBookFlightID(flightIDText.getText());
-			if (BookingDB.checkConflict(getBookFlightID(), homepage.getUsr()) && BookingDB.checkCapacity()) {
+			if (FlightBookingDB.checkConflict(getBookFlightID(), homepage.getUser()) && FlightBookingDB.checkCapacityOfFlight()) {
 				AlertMessage.display("Flight Conflict",
 						"WARNING!!! The FlightID entered creates a conflict with a previously booked flight!");
 				primaryStage.close();
 				BookFlight main2 = new BookFlight();
 				main2.start(new Stage());
-			} else if (!BookingDB.checkConflict(getBookFlightID(), homepage.getUsr()) && !BookingDB.checkDoubleBooked()
-					&& !BookingDB.checkCapacity()) {
+			} else if (!FlightBookingDB.checkConflict(getBookFlightID(), homepage.getUser()) && !FlightBookingDB.checkDoubleBooked()
+					&& !FlightBookingDB.checkCapacityOfFlight()) {
 				primaryStage.close();
 				BookFlight main2 = new BookFlight();
 				main2.start(new Stage());
 
-			} else if (BookingDB.checkConflict(getBookFlightID(), homepage.getUsr()) && BookingDB.checkDoubleBooked()) {
+			} else if (FlightBookingDB.checkConflict(getBookFlightID(), homepage.getUser()) && FlightBookingDB.checkDoubleBooked()) {
 				AlertMessage.display("Flight Conflict",
 						"The FlightID entered creates a conflict with a previously booked flight & has already been booked.");
-			} else if (BookingDB.checkDoubleBooked()) {
+			} else if (FlightBookingDB.checkDoubleBooked()) {
 				AlertMessage.display("Flight Conflict", "The FlightID entered has already been booked.");
-			} else if (BookingDB.checkCapacity()) {
+			} else if (FlightBookingDB.checkCapacityOfFlight()) {
 				AlertMessage.display("Flight Conflict",
 						"Sorry!! The FlightID entered is over capacity. Please choose another flight.");
 			}
@@ -242,7 +239,8 @@ public class SearchFlights extends Application implements EventHandler<ActionEve
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightproject", "root", "password");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost/WrightFlights?useSSL=false", "root",
+					"root");
 		} catch (Exception e) {
 			System.out.println("Cannot connect");
 		}

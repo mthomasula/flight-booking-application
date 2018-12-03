@@ -13,7 +13,7 @@ import BusinessLogic.Administrator;
 import BusinessLogic.Flight;
 
 public class AdministratorDB {
-	public static void addAdministrator(Administrator a) {
+	public static void addAdministrator(Administrator admin1) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -28,10 +28,10 @@ public class AdministratorDB {
 			connection = DriverManager.getConnection("jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightproject", "root", "password");
 			try {
 				// select query to run
-				String str = "Insert into Administrator Values('" + a.getUsername() + "','" + a.getPassword() + "','"
-						+ a.getFirstName() + "','" + a.getMidName() + "', '" + a.getLastName() + "', '" + a.getStreet()
-						+ "', '" + a.getZipCode() + "', '" + a.getState() + "', '" + a.getCountry() + "','"
-						+ a.getEmail() + "','" + a.getSecurityQ() + "', '" + a.getSecurityA() + "');";
+				String str = "Insert into Administrator Values('" + admin1.getUsername() + "','" + admin1.getPassword() + "','"
+						+ admin1.getFirstName() + "','" + admin1.getLastName() + "', '" + admin1.getAddress()
+						+ "', '" + admin1.getZipcode() + "', '" + admin1.getState() + "', '" + admin1.getCountry() + "','"
+						+ admin1.getEmail() + "','" + admin1.getSecurityQuestion() + "', '" + admin1.getSecurityAnswer() + "');";
 
 				// Prepare Statement
 				Statement statement = connection.prepareStatement(str);

@@ -1,11 +1,10 @@
 package GUI;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import GUI.Register;
+import GUI.Registration;
 
 
 
@@ -80,7 +79,7 @@ public void start(Stage primaryStage) {
 	register.setOnAction(e->{
 		
 		try {
-		Register user= new Register();
+		Registration user= new Registration();
 		user.start(new Stage());
 	}finally{
 		primaryStage.close();
@@ -94,9 +93,9 @@ public void start(Stage primaryStage) {
 			Connection connection = getConnection();
 			
 			String pw= password.getText().trim();
-			String usr= username.getText().trim();
+			String user= username.getText().trim();
 	
-					String str= "SELECT APassword FROM Admin WHERE UserName ='"+usr+"'";
+					String str= "SELECT APassword FROM Admin WHERE UserName ='"+user+"'";
 					
 					// Prepare Statement
 					PreparedStatement statement = connection.prepareStatement(str);
@@ -130,10 +129,10 @@ public void start(Stage primaryStage) {
 			Connection connection = getConnection();
 			
 			pw= password.getText().trim();
-			setUsr(username.getText().trim());
+			setUser(username.getText().trim());
 		
 
-					String str= "SELECT CPassword FROM Customer WHERE CUsername ='"+getUsr()+"'";
+					String str= "SELECT CPassword FROM Customer WHERE CUsername ='"+getUser()+"'";
 					
 					// Prepare Statement
 					PreparedStatement statement = connection.prepareStatement(str);
@@ -165,7 +164,8 @@ public void start(Stage primaryStage) {
 		Connection connection=null;
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		connection = DriverManager.getConnection("jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightproject", "root", "password"); 
+		connection = DriverManager.getConnection("jdbc:mysql://localhost/WrightFlights?useSSL=false", "root",
+				"root"); 
 		}catch(Exception e) {
 			System.out.println("Cannot connect");
 		}
@@ -176,10 +176,10 @@ public void start(Stage primaryStage) {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	public static String getUsr() {
+	public static String getUser() {
 		return usr;
 	}
-	public static void setUsr(String usr) {
+	public static void setUser(String user) {
 		homepage.usr = usr;
 	}
 }

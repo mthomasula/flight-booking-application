@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import BusinessLogic.Flight;
+import Database.CustomerDB;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -23,12 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class removeFlight extends Application implements EventHandler<ActionEvent>{
-	private static String bookFlightID = "";
+public class UserRemoveFlight extends Application implements EventHandler<ActionEvent> {
 	
 	public void start(Stage primaryStage) throws Exception {
-		
-		primaryStage.setTitle("Remove Flight");
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(20, 20, 20, 20));
 		TableView<Flight> table = new TableView<>();
@@ -36,8 +33,8 @@ public class removeFlight extends Application implements EventHandler<ActionEven
 		
 		Button userView = new Button("Main page");
 		userView.setOnAction(a -> {
-			AdminMain main= new AdminMain();
-			main.start(new Stage());
+			CustomerMain main=new CustomerMain();
+			main.start(primaryStage);
 		});
 		
 		TextField flightIDText = new TextField();
@@ -105,7 +102,7 @@ public class removeFlight extends Application implements EventHandler<ActionEven
 			Connection connection = getConnection();
 			
 
-			String str = "SELECT * FROM Flight WHERE flightID>1;";
+			String str = "SELECT * FROM Flight WHERE Cusername='"+CustomerDB.getUserSSN(homepage.getUser())+"';";
 			PreparedStatement statement = connection.prepareStatement(str);
 
 			ResultSet myResult = statement.executeQuery();
@@ -113,15 +110,13 @@ public class removeFlight extends Application implements EventHandler<ActionEven
 
 			if (!myResult.next()) {
 				AlertMessage.display("No Flights Found",
-						"No flights were found matching your criteria. Please try again. "
-								+ "\nFormat for searches-\nTo/From: City STATE ex. Atlanta GA\nDate:MM-DD-YYYY\nTime: HH:MM ex. 17:45");
+						"No flights were found matching your criteria. Please try again. ");
 			}
 			while (myResult.next()) {
-				data.add(new Flight(myResult.getString("flightNum"), myResult.getString("fDate"),
-						myResult.getString("DepartureTime"), myResult.getString("ArrivalTime"),
-						myResult.getString("FlightDuration"), myResult.getString("fTo"),
-						myResult.getString("fFrom"), myResult.getString("AirlineName"), myResult.getInt("capacity"),
-						myResult.getInt("BookedNum"), myResult.getString("DestinationAirport"),
+				data.add(new Flight(myResult.getString("FlightNumber"), myResult.getString("FlightDate"),
+						myResult.getString("DepartureTime"), myResult.getString("ArrivalTime"),, myResult.getString("DestinationCity"),
+						myResult.getString("DepartureCity"), myResult.getString("AirlineName"), myResult.getInt("FlightCapacity"),
+						myResult.getInt("BookedNumber"), myResult.getString("DestinationAirport"),
 						myResult.getString("Flight_Price"), myResult.getString("BoardingTime"),myResult.getString(1)));
 				table.setItems(data);
 			}
@@ -155,8 +150,15 @@ public class removeFlight extends Application implements EventHandler<ActionEven
 				statement.executeUpdate();
 				table.getItems().clear();
 				
-				statement.close();
 				
+			
+				String str1= "Update Flight set BookedNum-1 where flightID='"+flightIDText.getText()+"';";
+				PreparedStatement statement1 = connection.prepareStatement(str1);
+
+				statement1.executeUpdate();
+				
+				statement.close();
+				statement1.close();
 				connection.close();
 
 			} catch (Exception a) {
@@ -196,5 +198,4 @@ public class removeFlight extends Application implements EventHandler<ActionEven
 		return connection;
 
 	}
-	
 }

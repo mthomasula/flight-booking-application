@@ -26,18 +26,17 @@ public class CustomerDB  {
 		}
 		return null;
 	}
-	public static void addUser(Customer a) throws Exception {
+	public static void addUser(Customer customer1) throws Exception {
 
 		
 		try {
 			Connection connection = getConnection();
 			try {
 				// select query to run
-				String str = "Insert into Customer Values('" + a.getSsn() + "','" + a.getUsername() + "','"
-						+ a.getPassword() + "','" + a.getFirstName() + "', '" + a.getMidName() + "', '"
-						+ a.getLastName() + "', '" + a.getStreet() + "', '" + a.getZipCode() + "', '" + a.getState()
-						+ "','" + a.getCountry() + "','" + a.getEmail() + "', '" + a.getSecurityQ() + "','"
-						+ a.getSecurityA() + "');";
+				String str = "Insert into Customer Values('" + customer1.getSsn() + "','" + customer1.getUsername() + "','"
+						+ customer1.getPassword() + "','" + customer1.getFirstName() + "', '" + customer1.getLastName() + "', '" + customer1.getAddress() + "', '" + customer1.getZipcode() + "', '" + customer1.getState()
+						+ "','" + customer1.getCountry() + "','" + customer1.getEmail() + "', '" + customer1.getSecurityQuestion() + "','"
+						+ customer1.getSecurityAnswer() + "');";
 
 				// Prepare Statement
 				Statement statement = connection.prepareStatement(str);
@@ -84,7 +83,7 @@ public class CustomerDB  {
 		return "error";
 	}
 	
-	public static String getUserSecurityQ(String username) {
+	public static String getUserSecurityQuestion(String username) {
 
 		try {
 			Connection connection = getConnection();
@@ -114,7 +113,7 @@ public class CustomerDB  {
 		}
 		return "";
 	}
-	public static String getUserSecurityA(String username) {
+	public static String getUserSecurityAnswer(String username) {
 
 		try {
 			Connection connection = getConnection();

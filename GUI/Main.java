@@ -22,7 +22,7 @@ public class Main extends Application {
 	
 
 	//Primary Stage
-	primaryStage.setTitle("Flight App");
+	primaryStage.setTitle("Wright Flights");
 	primaryStage.setScene(scene);
 
 	//Show the SplashScreen

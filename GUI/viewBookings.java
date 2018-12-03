@@ -1,14 +1,15 @@
 package GUI;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import BusinessLogic.Flight;
-import Database.AdminDB;
-import Database.BookingDB;
+import Database.AdministratorDB;
+import Database.FlightBookingDB;
 import Database.CustomerDB;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -38,7 +39,7 @@ public class viewBookings extends Application implements EventHandler<ActionEven
 		
 		Button userView = new Button("Main page");
 		userView.setOnAction(a -> {
-			if (AdminDB.isAdmin(homepage.getUsr())) {
+			if (AdministratorDB.isAdmin(homepage.getUser())) {
 				primaryStage.close();
 				AdminMain main = new AdminMain();
 				main.start(new Stage());
@@ -103,7 +104,7 @@ public class viewBookings extends Application implements EventHandler<ActionEven
 			
 					try {
 						Connection connection = getConnection();
-					String str = "SELECT * FROM Booking WHERE Cssn = '" + CustomerDB.getUserSSN(homepage.getUsr()) + "';";
+					String str = "SELECT * FROM Booking WHERE Cssn = '" + CustomerDB.getUserSSN(homepage.getUser()) + "';";
 					PreparedStatement statement = connection.prepareStatement(str);
 
 					ResultSet myResult = statement.executeQuery();

@@ -1,5 +1,6 @@
 package GUI;
 
+
 import Database.CustomerDB;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -35,7 +36,7 @@ public class CustomerForgotPassword {
 		GridPane.setHalignment(enter1, HPos.CENTER);
 		
 		enter1.setOnAction(a->{
-		Text LSecurityQ= new Text(CustomerDB.getUserSecurityQ(username.getText()));
+		Text LSecurityQ= new Text(CustomerDB.getUserSecurityQuestion(username.getText()));
 		Label LSecurityA= new Label("Security Question Answer");
 		TextField SecurityA= new TextField();
 		Button enter2 = new Button("Enter");
@@ -47,8 +48,8 @@ public class CustomerForgotPassword {
 		
 			enter2.setOnAction(b->{
 				
-				if(SecurityA.getText().equalsIgnoreCase(CustomerDB.getUserSecurityA(username.getText()))){
-					Text passwordText= new Text(CustomerDB.getUserPW(username.getText()));
+				if(SecurityA.getText().equalsIgnoreCase(CustomerDB.getUserSecurityAnswer(username.getText()))){
+					Text passwordText= new Text(CustomerDB.getUserPassword(username.getText()));
 					grid.add(passwordText, 1, 7);
 					
 				}else {
@@ -62,7 +63,7 @@ public class CustomerForgotPassword {
 		
 		main.setOnAction(c->{
 			try {
-				homepage hp1=new homepage();
+				MainMenu hp1=new MainMenu();
 				hp1.start(new Stage());
 			}finally {
 				primaryStage.close();

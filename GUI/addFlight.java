@@ -131,7 +131,7 @@ public class addFlight extends Application{
 		});
 		confirmAdd.setOnAction(b->{
 			try {
-			Flight flight1=new Flight(flightNumText.getText(),fDateText.getText(),DepartureTimeText.getText(),ArrivalTimeText.getText(),flightDurationText.getText(),
+			Flight flight1=new Flight(flightNumberText.getText(),fDateText.getText(),DepartureTimeText.getText(),ArrivalTimeText.getText(),flightDurationText.getText(),
 					fToText.getText(),fFromText.getText(),AirlineNameText.getText(),Integer.parseInt(capacityText.getText()),0,DestinationAirportText.getText(),FlightPriceText.getText(),BoardingTimeText.getText(),flightIDText.getText());
 					FlightDB.addFlight(flight1);
 					Addstage.close();
@@ -149,7 +149,8 @@ public class addFlight extends Application{
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightproject", "root", "password");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost/WrightFlights?useSSL=false", "root",
+					"root");
 		} catch (Exception e) {
 			System.out.println("Cannot connect");
 		}
