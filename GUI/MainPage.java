@@ -1,10 +1,12 @@
 package GUI;
 import BusinessLogic.Administrator;
 import BusinessLogic.Flight;
-mport java.sql.*;
+import java.sql.*;
 
 
-import Objects.Flights;
+import BusinessLogic.Flight;
+import BusinessLogic.Administrator;
+import BusinessLogic.FlightBooking;
 import javafx.application.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,8 +41,8 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
 		
-		TableView<Flights> table = new TableView();
-		final ObservableList<Flights> data = FXCollections.observableArrayList();
+		TableView<Flight> table = new TableView();
+		final ObservableList<Flight> data = FXCollections.observableArrayList();
 		
 		Label userID = new Label();
 		Button searchFlights = new Button();
@@ -162,35 +164,35 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 			}
 		
 		});
-		TableColumn<Flights, Integer> column1 = new TableColumn<Flights, Integer>("Flight Number");
+		TableColumn<Flight, Integer> column1 = new TableColumn<Flight, Integer>("Flight Number");
 		column1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		column1.setMinWidth(128.88);
 
-		TableColumn<Flights, String> column2 = new TableColumn<Flights, String>("Airline");
+		TableColumn<Flight, String> column2 = new TableColumn<Flight, String>("Airline");
 		column2.setCellValueFactory(new PropertyValueFactory<>("Airline"));
 		column2.setMinWidth(128.88);
 
-		TableColumn<Flights, String> column3 = new TableColumn<Flights, String>("Origin City");
+		TableColumn<Flight, String> column3 = new TableColumn<Flight, String>("Origin City");
 		column3.setCellValueFactory(new PropertyValueFactory<>("originCity"));
 		column3.setMinWidth(128.88);
 
-		TableColumn<Flights, String> column4 = new TableColumn<Flights, String>("Destination City");
+		TableColumn<Flight, String> column4 = new TableColumn<Flight, String>("Destination City");
 		column4.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
 		column4.setMinWidth(128.88);
 
-		TableColumn<Flights, Date> column5 = new TableColumn<Flights, Date>("Departure Date");
+		TableColumn<Flight, Date> column5 = new TableColumn<Flight, Date>("Departure Date");
 		column5.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
 		column5.setMinWidth(128.88);
 
-		TableColumn<Flights, Time> column6 = new TableColumn<Flights, Time>("Departure Time");
+		TableColumn<Flight, Time> column6 = new TableColumn<Flight, Time>("Departure Time");
 		column6.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
 		column6.setMinWidth(128.88);
 
-		TableColumn<Flights, Date> column7 = new TableColumn<Flights, Date>("Arrival Date");
+		TableColumn<Flight, Date> column7 = new TableColumn<Flight, Date>("Arrival Date");
 		column7.setCellValueFactory(new PropertyValueFactory<>("arrivalDate"));
 		column7.setMinWidth(128.88);
 
-		TableColumn<Flights, Time> column8 = new TableColumn<Flights, Time>("Arrival Time");
+		TableColumn<Flight, Time> column8 = new TableColumn<Flight, Time>("Arrival Time");
 		column8.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
 		column8.setMinWidth(128.88);
 
@@ -207,7 +209,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		adminTool.setLayoutX(1100);
 		adminTool.setLayoutY(290);
 		adminTool.setOnAction(e ->{
-			RegisterFlights flightRegister =new RegisterFlights();
+			Registration flightRegister =new Registration();
 			try {
 				flightRegister.start(primaryStage);
 				
@@ -220,7 +222,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		adminTool1.setLayoutX(1100);
 		adminTool1.setLayoutY(330);
 		adminTool1.setOnAction(e -> {
-			UpdateFlights updateFlights = new UpdateFlights();
+			UpdateFlight updateFlights = new UpdateFlight();
 			try {
 				updateFlights.start(primaryStage);
 				
@@ -242,10 +244,6 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.centerOnScreen();
-
-
-		
-		
 		
 	}
 	
