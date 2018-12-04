@@ -2,6 +2,7 @@ package GUI;
 
 import java.sql.*;
 
+import javafx.scene.paint.Color;
 import javafx.application.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,8 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Home");
-		primaryStage.setResizable(false);
+		primaryStage.setResizable(true);
+		
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
 		
@@ -55,7 +57,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 					"jdbc:mysql://localhost:3306/flightdatabase", "root",
 					"password");
 
-			String sqlUserCheck = "SELECT * FROM `Users` where username = '" + Login.getUser()
+			String sqlUserCheck = "SELECT * FROM Users where username = '" + Login.getUser()
 					+ "' and isAdmin = '1'";
 			
 			Statement myStat = myConn.createStatement();
@@ -66,7 +68,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 			
 			int count = 0;
 			while (myRs.next()) {
-				count = count + 1;
+				count =+ 1;            //
 
 			}
 
@@ -106,7 +108,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		table.setLayoutX(10.0);
 		table.setLayoutY(57.0);
 		table.setPrefHeight(329.0);
-		table.setPrefWidth(1031.11);
+		table.setPrefWidth(781);  
 
 		myFlights.setLayoutX(420.0);
 		myFlights.setLayoutY(10.0);
@@ -163,35 +165,35 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		});
 		TableColumn<Flight, Integer> column1 = new TableColumn<Flight, Integer>("Flight Number");
 		column1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
-		column1.setMinWidth(128.88);
+		column1.setMinWidth(105);
 
 		TableColumn<Flight, String> column2 = new TableColumn<Flight, String>("Airline");
 		column2.setCellValueFactory(new PropertyValueFactory<>("Airline"));
-		column2.setMinWidth(128.88);
+		column2.setMinWidth(90);
 
 		TableColumn<Flight, String> column3 = new TableColumn<Flight, String>("Origin City");
 		column3.setCellValueFactory(new PropertyValueFactory<>("originCity"));
-		column3.setMinWidth(128.88);
+		column3.setMinWidth(90);
 
 		TableColumn<Flight, String> column4 = new TableColumn<Flight, String>("Destination City");
 		column4.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
-		column4.setMinWidth(128.88);
+		column4.setMinWidth(105);
 
 		TableColumn<Flight, Date> column5 = new TableColumn<Flight, Date>("Departure Date");
 		column5.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-		column5.setMinWidth(128.88);
+		column5.setMinWidth(105);
 
 		TableColumn<Flight, Time> column6 = new TableColumn<Flight, Time>("Departure Time");
 		column6.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
-		column6.setMinWidth(128.88);
+		column6.setMinWidth(105);
 
 		TableColumn<Flight, Date> column7 = new TableColumn<Flight, Date>("Arrival Date");
 		column7.setCellValueFactory(new PropertyValueFactory<>("arrivalDate"));
-		column7.setMinWidth(128.88);
+		column7.setMinWidth(90);
 
 		TableColumn<Flight, Time> column8 = new TableColumn<Flight, Time>("Arrival Time");
 		column8.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
-		column8.setMinWidth(128.88);
+		column8.setMinWidth(90);
 
 		table.getColumns().addAll(column1, column2, column3, column4, column5, column6, column7, column8);
 
@@ -202,7 +204,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 			
 		}
 		
-		Button adminTool = new Button("Admin Add flight");
+		Button adminTool = new Button("Admin Flight Add");
 		adminTool.setLayoutX(1100);
 		adminTool.setLayoutY(290);
 		adminTool.setOnAction(e ->{

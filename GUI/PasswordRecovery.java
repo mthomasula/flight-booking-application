@@ -57,7 +57,7 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 				// execute a query
 				ResultSet myRs;
 				user = username.getText().trim();
-				String sqlUserCheck = "SELECT `username` FROM `Users` where username = '" + user + "'";
+				String sqlUserCheck = "SELECT username FROM Users where username = '" + user + "'";
 				myRs = myStat.executeQuery(sqlUserCheck);
 
 				

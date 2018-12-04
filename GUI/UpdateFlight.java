@@ -106,7 +106,7 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 							"jdbc:mysql://localhost:3306/flightdatabase", "root",
 							"password");
 
-					String delete = "DELETE FROM `Flights` WHERE `num`='"
+					String delete = "DELETE FROM Flights WHERE num='"
 							+ flightNumberField.getText().trim() + "'";
 					Statement myStat = myConn.createStatement();
 					myStat.executeUpdate(delete);
