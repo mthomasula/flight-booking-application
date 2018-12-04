@@ -116,7 +116,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 				setPassword(passwordTxt.getText().trim());
 
 				
-				String sqlUserCheck = "SELECT `username` FROM `Users` where username = '" + getUser()
+				String sqlUserCheck = "SELECT username FROM Users where username = '" + getUser()
 						+ "' and pass = '" + getPassword() + "'";
 				myRs = myStat.executeQuery(sqlUserCheck);
 
@@ -145,7 +145,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 				
 				else if (count < 1) {
 					AlertBox.display("Incorrect Log In",
-							"Username and password combination is either incorrect or the account does not exist.\n Please select The 'Forgot Password' option if your password is unknonwn, \n or the register option to create an account.");
+							"Username and password conflict. Select the 'Forgot Password' option if needed.");
 				}
 
 			}

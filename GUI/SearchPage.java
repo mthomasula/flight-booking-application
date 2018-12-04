@@ -188,8 +188,8 @@ public class SearchPage extends Application implements EventHandler<ActionEvent>
 		final ObservableList<Flight> data = FXCollections.observableArrayList();
 		
 		ChoiceBox<String> dropdown = new ChoiceBox<>();
-		dropdown.getItems().addAll("Destnation", "Origin", "Departure", "Airline");
-		dropdown.setValue("Destnation");
+		dropdown.getItems().addAll("Destination", "Origin", "Departure", "Airline");
+		dropdown.setValue("Destination");
 		dropdown.setLayoutY(60);
 		dropdown.setLayoutX(340);
 		

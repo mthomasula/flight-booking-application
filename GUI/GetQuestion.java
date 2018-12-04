@@ -46,7 +46,7 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 			Statement myStat = myConn.createStatement();
 			
 			ResultSet myRs;
-			String sqlUserCheck = "SELECT `security_question` FROM `Users` where username = '" + user + "'";
+			String sqlUserCheck = "SELECT `security_question FROM Users where username = '" + user + "'";
 			myRs = myStat.executeQuery(sqlUserCheck);
 
 			
