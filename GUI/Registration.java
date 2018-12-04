@@ -1,6 +1,7 @@
 package GUI;
 
 import java.sql.*;
+
 import javafx.application.*;
 import javafx.event.*;
 import javafx.geometry.*;
@@ -177,21 +178,35 @@ public class Registration extends Application implements EventHandler<ActionEven
 			if (tPassword.getText().equals((tConfirm.getText())) == false) {
 				AlertBox.display("Error", "Password and Confirm password do not match.");
 			} else {
-				String sql = "INSERT INTO `flights`.`users`"
-						+ "(`firstName`,`lastName`,`address`,`zipcode`,`state`,`username`,`password`,`email`,"
-						+ "`ssn`,`security_question`,`security_answer`,`isAdmin`)VALUES " + "('" + tfName.getText()
+						String sql = "INSERT INTO Users"
+						+ "(firstName, lastName, address, zipcode, state, username, pass, email,"
+						+ " ssn, security_question, security_answer, isAdmin) VALUES " + "('" + tfName.getText()
 						+ "', '" + tlName.getText() + "', '" + tAddress.getText() + "', '" + tZip.getText() + "', '"
 						+ tState.getText() + "', '" + tUserName.getText() + "', '" + tPassword.getText() + "', '"
 						+ tEmail.getText() + "', '" + tSSN.getText() + "', '" + tSecutiryQ.getText() + "', '"
 						+ tSecutiryA.getText() + "', '0')";
 				
 				try {
+					Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/flightdatabase", "root", "password");
+					
+					Statement myStat = myConn.createStatement();
+					myStat.executeUpdate(sql);
+
+					AlertBox.display("Success", "A new user inserted!");
+					
+
+					Thread.sleep(3000);
+					Login loginPage = new Login();
+					try {
+						loginPage.start(primaryStage);
+					} catch (Exception ex) {
+						
+					}
 					
 				}
 				catch (Exception ex) {
 					AlertBox.display("Error", "A new user insert failed. \nThe user name " + tUserName.getText()
 					+ " is not available.");
-					System.out.println(ex.getMessage());
 				}
 			} 
 			}

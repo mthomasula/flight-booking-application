@@ -40,8 +40,8 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 		try {
 			
 			Connection myConn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/airlinedatabase", "root",
-					"confident");
+					"jdbc:mysql://localhost:3306/flightdatabase", "root",
+					"password");
 			
 			Statement myStat = myConn.createStatement();
 			
@@ -97,8 +97,8 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 				
 				String userAnswer = answerField.getText().trim();
 				Connection myConn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/airlinedatabase", "root",
-						"confident");
+						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"password");
 			
 				Statement myStat = myConn.createStatement();
 				
@@ -127,7 +127,7 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 					AlertBox.display("Password", "The password for your account is: " + password);
 
 				} else if (count == 1 && secAns != userAnswer) {
-					AlertBox.display("Incorrect Answer", "That answer is incotrrect. Please try again.");
+					AlertBox.display("Incorrect Answer", "That answer is incorrect. Please try again.");
 				}
 
 			}

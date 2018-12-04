@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-import BusinessLogic.Flight;
-import BusinessLogic.Administrator; 
 import javafx.application.*;
 import javafx.collections.*;
 import javafx.event.*;
@@ -134,13 +132,13 @@ public class FlightReservation extends Application implements EventHandler<Actio
 			try {
 				Connection myConn;
 				myConn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/airlinedatabase", "root",
-						"confident");
-				String sqlFightCheck = "select * From `Flights` where number = '"
+						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"password");
+				String sqlFightCheck = "select * From Flights where number = '"
 						+ flightNumberTxtField.getText() + "'";
 
-				String sqlFlightCreate = "INSERT INTO `Flights`(`number`,`airline`,`origin_city`,`destination_city`,`departure_date`,`departure_time`"
-						+ "`arrival_time`,`departure_date`,`arrival_date`,`seats_open`) VALUES('"
+				String sqlFlightCreate = "INSERT INTO Flights(number, airline, origin_city, destination_city, departure_date, departure_time"
+						+ "arrival_time, departure_date, arrival_date, seats_open) VALUES('"
 						+ flightNumberTxtField.getText() + "', '"+ airlineTxtField.getText() + "', '" 
 						+ originCityTxtField.getText() + "', '" + destinationCityTxtField.getText() + "' , '"
 						+ departureDateTxtField.getText() + "', '" + departureTimeTxtField.getText() + "', '"

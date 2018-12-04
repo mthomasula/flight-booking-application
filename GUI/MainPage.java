@@ -1,12 +1,7 @@
 package GUI;
-import BusinessLogic.Administrator;
-import BusinessLogic.Flight;
+
 import java.sql.*;
 
-
-import BusinessLogic.Flight;
-import BusinessLogic.Administrator;
-import BusinessLogic.FlightBooking;
 import javafx.application.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
+
+import BusinessLogic.Flight;
 
 
 
@@ -55,8 +52,8 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		try {
 			Connection myConn;
 			myConn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/airlinedatabase", "root",
-					"confident");
+					"jdbc:mysql://localhost:3306/flightdatabase", "root",
+					"password");
 
 			String sqlUserCheck = "SELECT * FROM `Users` where username = '" + Login.getUser()
 					+ "' and isAdmin = '1'";

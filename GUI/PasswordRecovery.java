@@ -1,6 +1,7 @@
 package GUI;
 
 import java.sql.*;
+
 import javafx.application.*;
 import javafx.event.*;
 import javafx.geometry.*;
@@ -48,7 +49,49 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 			
 			try {
 				
+				Connection myConn = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"password");
+				// create a statement
+				Statement myStat = myConn.createStatement();
+				// execute a query
+				ResultSet myRs;
+				user = username.getText().trim();
+				String sqlUserCheck = "SELECT `username` FROM `Users` where username = '" + user + "'";
+				myRs = myStat.executeQuery(sqlUserCheck);
+
+				
+				int count = 0;
+
+				while (myRs.next()) {
+
+					count = count + 1;
+
+				}
+				myRs.close();
+				myStat.close();
+				myConn.close();
+
+				
+				if (count == 1) {
+
+					GetQuestion recoveryPage = new GetQuestion();
+					try {
+
+						recoveryPage.start(primaryStage);
+					} catch (Exception e1) {
+
+					}
+				}
+
+				else {
+					AlertBox.display("Incorrect Username", "There is no user with the username: " + user);
+
+				}
+
 			}
+				
+			
 			catch (Exception ex){
 				
 			}

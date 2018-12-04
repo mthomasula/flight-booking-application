@@ -1,12 +1,13 @@
 package GUI;
 
 import java.sql.*;
+
 import javafx.application.*;
 import javafx.event.*;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
+
 import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
@@ -96,12 +97,62 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		login.setText("Log In");
 		
 		login.setOnAction(e -> {
-			MainPage MainPage = new MainPage();
+			
 			try {
 				
-				MainPage.start(primaryStage);
 				
+				Connection myConn = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"password");
+			
+				Statement myStat = myConn.createStatement();
+				
+				ResultSet myRs;
+
+				
+				setUser(userTxt.getText().trim());
+
+				
+				setPassword(passwordTxt.getText().trim());
+
+				
+				String sqlUserCheck = "SELECT `username` FROM `Users` where username = '" + getUser()
+						+ "' and pass = '" + getPassword() + "'";
+				myRs = myStat.executeQuery(sqlUserCheck);
+
+				
+				int count = 0;
+
+				
+				while (myRs.next()) {
+
+					count = count + 1;
+
+				}
+
+				myRs.close();
+				myStat.close();
+				myConn.close();
+
+				
+				if (count == 1) {
+					MainPage MainPage = new MainPage();
+					MainPage.start(primaryStage);
+					
+
+				}
+
+				
+				else if (count < 1) {
+					AlertBox.display("Incorrect Log In",
+							"Username and password combination is either incorrect or the account does not exist.\n Please select The 'Forgot Password' option if your password is unknonwn, \n or the register option to create an account.");
+				}
+
 			}
+				
+			
+				
+			
 			catch(Exception ex) {
 				
 			}

@@ -13,8 +13,6 @@ import java.sql.Time;
 import java.sql.Timestamp;
 
 import BusinessLogic.Flight;
-import BusinessLogic.Administrator; 
-import BusinessLogic.FlightBooking;
 
 import javafx.application.*;
 import javafx.collections.*;
@@ -88,8 +86,8 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 				
 				Connection myConn;
 				myConn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/airlinedatabase", "root", "confident");
-
+						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"password");
 				String update = getOption(dropdown2).trim() + " `Flights` SET `"
 						+ getChoice(dropdown).trim() + "` = '" + info.getText().trim() + "' WHERE `num` = '"
 						+ flightNumberField.getText().trim() + "' ";
@@ -105,7 +103,8 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 
 					Connection myConn;
 					myConn = DriverManager.getConnection(
-							"jdbc:mysql://localhost:3306/airlinedatabase", "root", "confident");
+							"jdbc:mysql://localhost:3306/flightdatabase", "root",
+							"password");
 
 					String delete = "DELETE FROM `Flights` WHERE `num`='"
 							+ flightNumberField.getText().trim() + "'";
