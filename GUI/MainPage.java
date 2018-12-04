@@ -82,7 +82,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		
 		userID.setAlignment(javafx.geometry.Pos.CENTER);
 		userID.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
-		userID.setLayoutX(970.0);
+		userID.setLayoutX(928.0);
 		userID.setLayoutY(20.0);
 		userID.setText("Logged in as: " + Login.getUser() );
 		userID.setTextAlignment(javafx.scene.text.TextAlignment.RIGHT);
