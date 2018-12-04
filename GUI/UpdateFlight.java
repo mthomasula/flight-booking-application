@@ -88,8 +88,8 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 				myConn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/flightdatabase", "root",
 						"password");
-				String update = getOption(dropdown2).trim() + " `Flights` SET `"
-						+ getChoice(dropdown).trim() + "` = '" + info.getText().trim() + "' WHERE `num` = '"
+				String update = getOption(dropdown2).trim() + " Flights` SET "
+						+ getChoice(dropdown).trim() + " = '" + info.getText().trim() + "' WHERE num = '"
 						+ flightNumberField.getText().trim() + "' ";
 				Statement myStat = myConn.createStatement();
 				myStat.executeUpdate(update);

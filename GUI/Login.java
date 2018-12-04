@@ -1,5 +1,5 @@
 package GUI;
-
+import javafx.scene.paint.Color;
 import java.sql.*;
 
 import javafx.application.*;
@@ -15,6 +15,10 @@ import javafx.stage.*;
 public class Login extends Application implements EventHandler<ActionEvent>{
 	private static String user = "";
 	private static String password = "";
+	
+	/*public Color(double r, double g, double b, double opecity); */
+	
+	
 	
 	public static String getUser() {
 		return user;
@@ -43,7 +47,10 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		
-		primaryStage.setTitle("Log In");
+		
+		
+		//primaryStage.setFill(new Color(RED);
+		primaryStage.setTitle("Log In Window");
 		primaryStage.setResizable(false);
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
@@ -55,7 +62,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		loginLabel.setPrefHeight(32.0);
 		loginLabel.setPrefWidth(500.0);
 		loginLabel.setText("Enter Your Username And Password");
-		loginLabel.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+		loginLabel.setTextAlignment(javafx.scene.text.TextAlignment.LEFT);
 		loginLabel.setFont(new Font(22.0));
 		
 		Label usernameLabel = new Label("Username:");
@@ -90,7 +97,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		
 		Button login = new Button("Log In");
 		login.setLayoutX(370.0);
-		login.setLayoutY(222.0);
+		login.setLayoutY(222.0);   
 		login.setMnemonicParsing(false);
 		login.setPrefHeight(25.0);
 		login.setPrefWidth(150.0);

@@ -137,11 +137,11 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 						"jdbc:mysql://localhost:3306/flightdatabase", "root",
 						"password");
 				
-				String sqlFightCheck = "select * From `Flights` where number = '"
+				String sqlFightCheck = "select * From Flights where number = '"
 						+ flightNumberTxtField.getText() + "'";
 
-				String sqlFlightCreate = "INSERT INTO `Flights`(`num`,`airline`,`origin_city`,`destination_city`,`departure_time`,`arrival_time`"
-						+ "`departure_date`,`arrival_date`,`seats_open`) VALUES('"
+				String sqlFlightCreate = "INSERT INTO Flights(num, airline, origin_city, destination_city, departure_time`, arrival_time"
+						+ "departure_date, arrival_date, seats_open) VALUES('"
 						+ flightNumberTxtField.getText() + "', '"+ airlineTxtField.getText() + "', '" 
 						+ originCityTxtField.getText() + "', '" + destinationCityTxtField.getText() + "' , '"
 						+ departureDateTxtField.getText() + "', '" + departureTimeTxtField.getText() + "', '"
