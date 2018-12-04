@@ -25,3 +25,7 @@
 /LoginPage.class
 /Login.class
 /PasswordRecovery.class
+/GetQuestion.class
+/FlightReservation.class
+/UpdateFlight.class
+/UpdateFlights.class
