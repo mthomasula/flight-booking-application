@@ -1,10 +1,10 @@
 package GUI;
 
 import java.sql.*;
+import BusinessLogic.Flight;
 
-import AirplaneApp.Flight;
-import GUI_Database.Login;
-import GUI_Database.MainPage;
+import GUI.Login;
+import GUI.MainPage;
 import javafx.application.*;
 import javafx.collections.*;
 import javafx.event.*;

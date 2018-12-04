@@ -1,7 +1,6 @@
 package GUI;
-import java.sql.*;
 
-import GUI_Database.Login;
+import java.sql.*;
 import javafx.application.*;
 import javafx.event.*;
 import javafx.geometry.*;
@@ -10,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
-public class ForgottenPassword extends Application implements EventHandler<ActionEvent> {
+public class PasswordRecovery extends Application implements EventHandler<ActionEvent> {
 	
 	public static String user = "";
 	
