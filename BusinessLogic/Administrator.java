@@ -1,6 +1,7 @@
 package BusinessLogic;
 
 import Database.AdministratorDB;
+
 import Database.CustomerDB;
 
 public class Administrator extends Customer implements User {
@@ -15,8 +16,7 @@ public class Administrator extends Customer implements User {
 		this.password = password;
 		this.address = address;
 		this.state = state;
-		this.zipcode= zipcode;
-		this.country = country;
+		this.zipCode= zipcode;
 		this.email = email;
 		this.securityQuestion = securityQuestion;
 		this.securityAnswer = securityAnswer;
