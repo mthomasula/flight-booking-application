@@ -187,7 +187,9 @@ public class Registration extends Application implements EventHandler<ActionEven
 						+ tSecutiryA.getText() + "', '0')";
 				
 				try {
-					Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/flightdatabase", "root", "password");
+					Connection myConn = DriverManager.getConnection(
+							"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
+							"password");
 					
 					Statement myStat = myConn.createStatement();
 					myStat.executeUpdate(sql);

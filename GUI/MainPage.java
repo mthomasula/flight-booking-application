@@ -73,7 +73,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		try {
 			Connection myConn;
 			myConn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/flightdatabase", "root",
+					"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
 					"password");
 
 			String sqlUserCheck = "SELECT * FROM Users where username = '" + Login.getUser()

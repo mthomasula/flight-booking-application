@@ -40,7 +40,7 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 		try {
 			
 			Connection myConn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/flightdatabase", "root",
+					"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
 					"password");
 			
 			Statement myStat = myConn.createStatement();

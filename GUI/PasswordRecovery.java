@@ -50,8 +50,9 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 			try {
 				
 				Connection myConn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
 						"password");
+				
 				// create a statement
 				Statement myStat = myConn.createStatement();
 				// execute a query

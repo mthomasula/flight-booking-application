@@ -132,8 +132,9 @@ public class FlightReservation extends Application implements EventHandler<Actio
 			try {
 				Connection myConn;
 				myConn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/flightdatabase", "root",
+						"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
 						"password");
+				
 				String sqlFightCheck = "select * From Flights where number = '"
 						+ flightNumberTxtField.getText() + "'";
 
