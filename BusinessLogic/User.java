@@ -15,7 +15,6 @@ public class User {
 	private String securityAns;
 	private boolean checkAdmin;
 	
-	
 	public boolean isAdmin() {
 		return checkAdmin;
 	}
@@ -112,5 +111,4 @@ public class User {
 		this.securityAns = securityAns;
 	}
 	
-
 }

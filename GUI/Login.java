@@ -16,9 +16,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 	private static String user = "";
 	private static String password = "";
 	
-	/*public Color(double r, double g, double b, double opecity); */
-	
-	
+	/*public Color(double r, double g, double b, double opecity); */	
 	
 	public static String getUser() {
 		return user;
@@ -55,6 +53,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
 
+		
 		Label loginLabel = new Label("Enter your username and password");
 		loginLabel.setAlignment(javafx.geometry.Pos.CENTER);
 		loginLabel.setLayoutX(144.0);
@@ -63,13 +62,13 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		loginLabel.setPrefWidth(500.0);
 		loginLabel.setText("Enter Your Username And Password");
 		loginLabel.setTextAlignment(javafx.scene.text.TextAlignment.LEFT);
-		loginLabel.setFont(new Font(22.0));
+		loginLabel.setFont(new Font(15.0));
 		
 		Label usernameLabel = new Label("Username:");
 		usernameLabel.setLayoutX(267.0);
 		usernameLabel.setLayoutY(131.0);
 		usernameLabel.setText("Username:");
-		usernameLabel.setFont(new Font(20.0));
+		usernameLabel.setFont(new Font(15.0));
 		
 		TextField userTxt = new TextField();
 		userTxt.setLayoutX(370.0);
@@ -79,7 +78,7 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		Label passwordLabel = new Label("Password:");
 		passwordLabel.setLayoutX(270.0);
 		passwordLabel.setLayoutY(174.0);
-		passwordLabel.setFont(new Font(20.0));
+		passwordLabel.setFont(new Font(15.0));
 
 		PasswordField passwordTxt = new PasswordField();
 		passwordTxt.setLayoutX(370.0);
@@ -224,8 +223,6 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		primaryStage.show();
 		primaryStage.centerOnScreen();
 
-
-
 	}
 	
 	
@@ -234,9 +231,5 @@ public class Login extends Application implements EventHandler<ActionEvent>{
 		// TODO Auto-generated method stub
 		
 	}
-
-	
-	
-	
 
 }

@@ -17,9 +17,9 @@ import javafx.stage.*;
 
 import BusinessLogic.Flight;
 
-
-
 public class MainPage extends Application implements EventHandler<ActionEvent> {
+	
+	
 	
 	private ObservableList<ObservableList> data;
 	private String usernameID = "";
@@ -27,10 +27,19 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 	private boolean isAdmin = false;
 	
 
-// Main Method	
+
+	
+	
+	
+	// Main Method	
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	
+	
+	
+	
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -43,6 +52,10 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		TableView<Flight> table = new TableView();
 		final ObservableList<Flight> data = FXCollections.observableArrayList();
 		
+		
+		
+		
+		
 		Label userID = new Label();
 		Button searchFlights = new Button();
 		Label myFlights = new Label();
@@ -50,6 +63,12 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		Button logOut = new Button();
 		TextField deleteFlightTxt = new TextField();
 		Button refresh = new Button("Refresh");
+		
+		
+		
+		
+		
+		
 		
 		try {
 			Connection myConn;
@@ -129,7 +148,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		
 		logOut.setLayoutX(1100.0);
 		logOut.setLayoutY(249.0);
-		logOut.setMnemonicParsing(false);
+		logOut.setMnemonicParsing(false); //Log in open
 		logOut.setText("Log Out");
 		logOut.setOnAction(e -> {
 			Login loginPage = new Login();
@@ -163,6 +182,10 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 			}
 		
 		});
+		
+		
+		
+		
 		TableColumn<Flight, Integer> column1 = new TableColumn<Flight, Integer>("Flight Number");
 		column1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		column1.setMinWidth(105);
@@ -238,7 +261,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		anchor.getChildren().addAll(deleteFlightLbl, userID, searchFlights, table, myFlights, deleteFlights,
 				deleteFlightTxt, logOut, refresh);
 		
-		Scene scene = new Scene(anchor, 1300, 500);
+		Scene scene = new Scene(anchor, 1300, 500, Color.TEAL);
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -248,7 +271,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 	
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
+	
 
 	}
 	
@@ -268,6 +291,4 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		this.usernameID = usernameID;
 	}
 	
-	
-
 }

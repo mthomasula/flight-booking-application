@@ -365,11 +365,8 @@ public class SearchPage extends Application implements EventHandler<ActionEvent>
 			return 1;
 		} else {
 			return 0;
-		}
-		
+		}		
 		
 	}
-
-	
-	
+		
 }

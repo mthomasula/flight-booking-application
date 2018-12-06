@@ -199,7 +199,6 @@ public class FlightReservation extends Application implements EventHandler<Actio
 		// TODO Auto-generated method stub
 
 	}
-		
-	
+			
  
 }

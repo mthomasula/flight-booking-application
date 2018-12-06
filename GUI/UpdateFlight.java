@@ -1,6 +1,5 @@
 package GUI;
 
-
 import java.sql.Connection;
 
 import java.sql.Date;
@@ -40,7 +39,7 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 		final ObservableList<Flight> data = FXCollections.observableArrayList();
 
 		ChoiceBox<String> dropdown = new ChoiceBox<>();
-		dropdown.getItems().addAll("Flight Number", "Airline", "Destnation", "Origin", "Departure Date",
+		dropdown.getItems().addAll("Flight Number", "Airline", "Destination", "Origin", "Departure Date",
 				"Departure Time", "Arrival Date", "Arrival Time");
 		dropdown.setValue("Flight Number");
 		dropdown.setLayoutY(60);
@@ -236,6 +235,5 @@ public class UpdateFlight extends Application implements EventHandler<ActionEven
 		// TODO Auto-generated method stub
 
 	}
-
 	
 }

@@ -34,7 +34,7 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 		grid.setAlignment(Pos.TOP_CENTER);
 		GridPane.setHalignment(passwordRecoverLabel, HPos.CENTER);
 
-		Label usernameLabel = new Label("Enter Your Username Below");
+		Label usernameLabel = new Label("Enter Your Username");
 		GridPane.setConstraints(usernameLabel, 1, 1);
 		grid.setAlignment(Pos.TOP_CENTER);
 		GridPane.setHalignment(usernameLabel, HPos.CENTER);
@@ -85,7 +85,7 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 				}
 
 				else {
-					AlertBox.display("Incorrect Username", "There is no user with the username: " + user);
+					AlertBox.display("Incorrect Username", "No user with the username: " + user);
 
 				}
 
@@ -98,7 +98,7 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 			
 		});
 		
-		Button login = new Button("Return To Log In");
+		Button login = new Button("Return To Log In Window");
 		GridPane.setConstraints(login, 1, 5);
 		login.setOnAction(e -> {
 			Login loginPage = new Login();
@@ -121,8 +121,6 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 		primaryStage.show();
 		primaryStage.centerOnScreen();
 		
-
-		
 	}
 	
 	@Override
@@ -130,7 +128,5 @@ public class PasswordRecovery extends Application implements EventHandler<Action
 		// TODO Auto-generated method stub
 
 	}
-
-	
 
 }

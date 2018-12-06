@@ -46,7 +46,7 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 			Statement myStat = myConn.createStatement();
 			
 			ResultSet myRs;
-			String sqlUserCheck = "SELECT `security_question FROM Users where username = '" + user + "'";
+			String sqlUserCheck = "SELECT security_question FROM Users where username = '" + user + "'";
 			myRs = myStat.executeQuery(sqlUserCheck);
 
 			
@@ -127,7 +127,7 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 					AlertBox.display("Password", "The password for your account is: " + password);
 
 				} else if (count == 1 && secAns != userAnswer) {
-					AlertBox.display("Incorrect Answer", "That answer is incorrect. Please try again.");
+					AlertBox.display("Incorrect Answer", "That is incorrect.");
 				}
 
 			}
@@ -168,7 +168,5 @@ public class GetQuestion extends Application implements EventHandler<ActionEvent
 		// TODO Auto-generated method stub
 
 	}
-			
-			
 		
 }

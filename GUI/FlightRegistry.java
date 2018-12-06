@@ -66,58 +66,58 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 		arrivalTime.setLayoutX(200);
 		arrivalTime.setLayoutY(290);
 
-		Text capacity = new Text("Available Seats");
+		Text capacity = new Text("# of Seats");
 		capacity.setLayoutX(200);
 		capacity.setLayoutY(330);
 
 		TextField airlineTxtField = new TextField();
 		airlineTxtField.setLayoutX(300);
 		airlineTxtField.setLayoutY(25);
-		airlineTxtField.setPromptText("Airline");
+		airlineTxtField.setPromptText("Enter the Airline");
 
 		TextField flightNumberTxtField = new TextField();
 		flightNumberTxtField.setLayoutX(300);
 		flightNumberTxtField.setLayoutY(60);
-		flightNumberTxtField.setPromptText("Flight Number");
+		flightNumberTxtField.setPromptText("Enter the Flight Number");
 
 		TextField originCityTxtField = new TextField();
 		originCityTxtField.setLayoutX(300);
 		originCityTxtField.setLayoutY(95);
-		originCityTxtField.setPromptText("Origin City");
+		originCityTxtField.setPromptText("Enter the Origin City");
 
 		TextField destinationCityTxtField = new TextField();
 		destinationCityTxtField.setLayoutX(300);
 		destinationCityTxtField.setLayoutY(130);
-		destinationCityTxtField.setPromptText("Destination City");
+		destinationCityTxtField.setPromptText("Enter the Destination City");
 
 		TextField departureDateTxtField = new TextField();
 		departureDateTxtField.setLayoutX(300);
 		departureDateTxtField.setLayoutY(165);
-		departureDateTxtField.setPromptText("YYYY-MM-DD");
+		departureDateTxtField.setPromptText("Enter the YYYY-MM-DD");
 
 		TextField departureTimeTxtField = new TextField();
 		departureTimeTxtField.setLayoutX(300);
 		departureTimeTxtField.setLayoutY(200);
-		departureTimeTxtField.setPromptText("HH:MM:SS");
+		departureTimeTxtField.setPromptText("Enter the HH:MM:SS");
 
 		TextField arrivalDateTxtField = new TextField();
 		arrivalDateTxtField.setLayoutX(300);
 		arrivalDateTxtField.setLayoutY(235);
-		arrivalDateTxtField.setPromptText("YYYY-MM-DD");
+		arrivalDateTxtField.setPromptText("Enter the YYYY-MM-DD");
 
 		TextField arrivalTimeTxtField = new TextField();
 		arrivalTimeTxtField.setLayoutX(300);
 		arrivalTimeTxtField.setLayoutY(270);
-		arrivalTimeTxtField.setPromptText("HH:MM:SS");
+		arrivalTimeTxtField.setPromptText("Enter the Time");
 
 		TextField seatsOpenTxtField = new TextField();
 		seatsOpenTxtField.setLayoutX(300);
 		seatsOpenTxtField.setLayoutY(310);
-		seatsOpenTxtField.setPromptText("Capacity");
+		seatsOpenTxtField.setPromptText("Enter the Capacity");
 
-		Button returnHome = new Button("Return to main Page");
-		returnHome.setLayoutX(250);
-		returnHome.setLayoutY(450);
+		Button returnHome = new Button("Return to main page");
+		returnHome.setLayoutX(400);
+		returnHome.setLayoutY(350);
 		returnHome.setOnAction(e -> {
 			MainPage mainPage = new MainPage();
 			try {
@@ -128,8 +128,8 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 		});
 		
 		Button create = new Button("Create Flight");
-		create.setLayoutX(250);
-		create.setLayoutY(400);
+		create.setLayoutX(220);
+		create.setLayoutY(350);
 		create.setOnAction(e -> {
 			try {
 				Connection myConn;
@@ -159,7 +159,7 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 				}
 				if (count == 0) {
 					myStat.executeUpdate(sqlFlightCreate);
-					AlertBox.display("Success", "Flight Successfully Added!");
+					AlertBox.display("Success", "Flight Has Been Successfully Added!");
 
 				} else {
 					AlertBox.display("Error",
@@ -169,7 +169,7 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 			}
 			catch(Exception ex) {
 				
-				AlertBox.display("Error", "Departure cannot be before a arrival");
+				AlertBox.display("Error", "Logical Error: ");
 				
 			}
 		});
@@ -203,6 +203,5 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 
 	}
 		
-	
  
 }
