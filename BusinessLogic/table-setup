@@ -1,0 +1,70 @@
+create database if not exists flightdatabase;
+
+USE flightdatabase;
+
+
+	CREATE TABLE Flights(
+
+		num INT primary key,
+		airline varchar(45) NOT NULL,
+		origin_city varchar(45) NOT NULL,
+		destination_city varchar(45) NOT NULL,
+		departure_time varchar(45) NOT NULL,
+		arrival_time varchar(45) NOT NULL,
+		departure_date date NOT NULL,
+		arrival_date date NOT NULL,
+		seats_open INT NOT NULL
+		);
+    
+    CREATE TABLE City(
+		ids INT primary key,
+        cityName TEXT(50) NOT NULL,
+        location TEXT(50) NOT NULL
+        );
+        
+	CREATE TABLE FlightCity(
+    
+		num INT NOT NULL,
+        ids INT NOT NULL,
+        
+		CONSTRAINT FlightCity_Flights_fk FOREIGN KEY(num)
+        REFERENCES Flights(num)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
+        CONSTRAINT FlightCity_City_fk FOREIGN KEY(ids)
+        REFERENCES City(Ids)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+        );
+        
+	CREATE TABLE Users(
+		
+        firstName varchar(45) NOT NULL,
+        lastName varchar(45) NOT NULL,
+        address varchar(45) NOT NULL,
+        zipcode varchar(45) NOT NULL,
+        state varchar(45) NOT NULL,
+        username varchar(45) NOT NULL,
+        pass varchar(45) NOT NULL,
+        email varchar(45) NOT NULL,
+        ssn varchar(11) Primary key,
+        security_question text(500) NOT NULL,
+        security_answer text(500) NOT NULL,
+        isAdmin INT NOT NULL
+        );
+        
+        CREATE TABLE FlightUser(
+        
+        num INT NOT NULL,
+		ssn INT NOT NULL,
+        
+		CONSTRAINT FlightUser_Flights_fk FOREIGN KEY(num)
+        REFERENCES Flights(num)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
+        CONSTRAINT FlightUser_User_fk FOREIGN KEY(ssn)
+        REFERENCES City(Ids)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+        );
+

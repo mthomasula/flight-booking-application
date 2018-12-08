@@ -2,13 +2,10 @@ package BusinessLogic;
 
 public class City {
 	
-	private String cityName;     // Atlanta
-	private String location;     // Georgia
-	private String cityID;		// ATL
+	private String cityName;
+	private String location;
+	private String cityID;
 	
-	
-	
-//Constructors
 	
 	public City() {
 		cityName ="Los Angeles";
@@ -17,24 +14,14 @@ public class City {
 		
 	}
 	
-<<<<<<< HEAD
-	
-	public City(String cityName, String location, String cityID) {
-		this.cityName = cityName;
-		this.location = location;
-		this.cityID = cityID;
-=======
 	public City(String a, String b, String c) {
 		cityName =a;
 		location =b;
-		cityID =c;
->>>>>>> branch 'master' of https://github.com/rabinchowdhury/FlightAppProject.git
+		cityID = c;
 		
-	}	
+	}
 	
 	
-	
-//Mutators
 	
 	public String getCityName() {
 		return cityName;
@@ -61,8 +48,6 @@ public class City {
 		
 	}
 	
+	
+
 }
-
-
-
-

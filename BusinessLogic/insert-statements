@@ -1,0 +1,16 @@
+USE flightdatabase;
+
+
+Insert into Users( firstName, lastName, address, zipcode, state, username, pass, email, ssn, security_question, security_answer, isAdmin) 
+Values('Rabin', 'Chowdhury', '1234 Georgia State', '12345', 'GA', 'rchowdhury', '1234', 'rabin@email.com','321-12-1234', 'GSU Mascot?', 'Panther', '1');
+
+Insert into Flights( num, airline, origin_city, destination_city, departure_time, arrival_time, departure_date, arrival_date, seats_open) 
+Values( '7', 'Delta', 'Atlanta','San Francisco', '02:30:00', '06:30:00', '2018-12-18', '2018-12-18', '100');
+Insert into Flights( num, airline, origin_city, destination_city, departure_time, arrival_time, departure_date, arrival_date, seats_open) 
+Values( '2', 'American Airlines', 'Atlanta','San Francisco', '02:30:00', '06:30:00', '2018-12-19', '2018-12-19', '120');
+Insert into Flights( num, airline, origin_city, destination_city, departure_time, arrival_time, departure_date, arrival_date, seats_open) 
+Values( '3', 'American Airlines', 'Atlanta','Chicago', '04:30:00', '06:30:00', '2018-12-20', '2018-12-20', '150');
+Insert into Flights( num, airline, origin_city, destination_city, departure_time, arrival_time, departure_date, arrival_date, seats_open) 
+Values( '4', 'Delta', 'Seattle','Atlanta', '02:30:00', '06:30:00', '2018-12-21', '2018-12-21', '170');
+Insert into Flights( num, airline, origin_city, destination_city, departure_time, arrival_time, departure_date, arrival_date, seats_open) 
+Values( '5', 'Delta', 'Detroit','San Francisco', '04:30:00', '08:30:00', '2018-12-22', '2018-12-22', '200'); 
