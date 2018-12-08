@@ -11,7 +11,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
 
-
 public class Registration extends Application implements EventHandler<ActionEvent>{
 	
 	TextField tfName = new TextField();
@@ -242,12 +241,7 @@ public class Registration extends Application implements EventHandler<ActionEven
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.centerOnScreen();
-		
-
-		
-		
-
-		
+			
 	}
 	
 	@Override
@@ -255,7 +249,6 @@ public class Registration extends Application implements EventHandler<ActionEven
 		// TODO Auto-generated method stub
 		
 	}
-	
 	
 
 }

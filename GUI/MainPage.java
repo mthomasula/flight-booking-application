@@ -20,27 +20,16 @@ import BusinessLogic.Flight;
 public class MainPage extends Application implements EventHandler<ActionEvent> {
 	
 	
-	
 	private ObservableList<ObservableList> data;
 	private String usernameID = "";
 	
 	private boolean isAdmin = false;
-	
-
-
-	
-	
-	
+		
 	// Main Method	
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	
-	
-	
-	
-	
+		
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Home");
@@ -51,11 +40,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		
 		TableView<Flight> table = new TableView();
 		final ObservableList<Flight> data = FXCollections.observableArrayList();
-		
-		
-		
-		
-		
+			
 		Label userID = new Label();
 		Button searchFlights = new Button();
 		Label myFlights = new Label();
@@ -63,12 +48,6 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		Button logOut = new Button();
 		TextField deleteFlightTxt = new TextField();
 		Button refresh = new Button("Refresh");
-		
-		
-		
-		
-		
-		
 		
 		try {
 			Connection myConn;
@@ -183,9 +162,6 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 		
 		});
 		
-		
-		
-		
 		TableColumn<Flight, Integer> column1 = new TableColumn<Flight, Integer>("Flight Number");
 		column1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		column1.setMinWidth(105);
@@ -270,8 +246,7 @@ public class MainPage extends Application implements EventHandler<ActionEvent> {
 	}
 	
 	@Override
-	public void handle(ActionEvent event) {
-	
+	public void handle(ActionEvent event) {	
 
 	}
 	

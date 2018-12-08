@@ -20,24 +20,27 @@ public class City {
 		cityID = c;
 		
 	}
-	
-	
-	
+		
 	public String getCityName() {
 		return cityName;
 	}
+	
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+	
 	public String getLocation() {
 		return location;
 	}
+	
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	
 	public String getCityID() {
 		return cityID;
 	}
+	
 	public void setCityID(String cityID) {
 		this.cityID = cityID;
 	}
@@ -47,7 +50,6 @@ public class City {
 		return "City Name: " + cityName + "\nLocation: " + location + "\nCity ID: " + "";
 		
 	}
-	
 	
 
 }

@@ -21,24 +21,14 @@ import javafx.scene.text.*;
 import javafx.stage.*;
 
 
-
 public class FlightRegistry extends Application implements EventHandler<ActionEvent> {
 	
-	
-	
-	
-	
-	
+			
 	public static void main(String[] args)  {
 		
 		launch(args);
 		
-	}
-	
-	
-	
-	
-	
+	}		
 	
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -126,12 +116,8 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 		seatsOpenTxtField.setLayoutX(300);
 		seatsOpenTxtField.setLayoutY(310);
 		seatsOpenTxtField.setPromptText("Enter the Capacity");
-
-		
-		
-		
-		
-	//Return to home page
+						
+		//Return to home page
 		Button returnHome = new Button("Return to main page");
 		returnHome.setLayoutX(400);
 		returnHome.setLayoutY(350);
@@ -145,12 +131,7 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 				
 			}
 		});
-	//	
-		
-		
-		
-		
-		
+			
 		Button create = new Button("Create Flight");
 		create.setLayoutX(220);
 		create.setLayoutY(350);
@@ -234,5 +215,4 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 
 	}
 		
- 
 }

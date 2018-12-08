@@ -12,8 +12,6 @@ import javafx.beans.InvalidationListener;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
-
-
 public class Flight implements ObservableList {
 	
 	private String airline;
@@ -43,8 +41,7 @@ public class Flight implements ObservableList {
 		this.destinationCity = destinationCity;
 		
 	}
-	
-	
+		
 	public Flight(String airline, String originCity, String destinationCity, int flightNumber, int seatsOpen, Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime, Timestamp time) {
 		
 		super();
@@ -59,10 +56,8 @@ public class Flight implements ObservableList {
 		this.arrivalTime = arrivalTime;
 		this.seatsOpen = seatsOpen;
 		this.time = time;
-		
-		
-	}
-	
+				
+	}	
 	
 	public Flight(String airline, String originCity, String destinationCity, int flightNumber, int seatsOpen, Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
 		
@@ -79,7 +74,6 @@ public class Flight implements ObservableList {
 		
 	}
 	
-	
 	public Flight(String airline, String originCity, String destinationCity, int flightNumber, Date departureDate, Time departureTime, Date arrivalDate, Time arrivalTime) {
 		
 		super();
@@ -94,77 +88,98 @@ public class Flight implements ObservableList {
 		
 	}
 		
-	
-	
 	public boolean checkIfSeatFull() {
-		return checkIfSeatFull;
+		return checkIfSeatFull;	
 	}
+	
 	public void setFull(boolean checkIfSeatFull) {
-		this.checkIfSeatFull = checkIfSeatFull;
+		this.checkIfSeatFull = checkIfSeatFull;		
 	}
+	
 	public String getAirline() {
-		return airline;
+		return airline;		
 	}
+	
 	public void setAirline(String airline) {
 		this.airline = airline;
 	}
+	
 	public String getOriginCity() {
 		return originCity;
 	}
+	
 	public void setOriginCity(String originCity) {
 		this.originCity = originCity;
 	}
+	
 	public String getDestinationCity() {
 		return destinationCity;
 	}
+	
 	public void setDestinationCity(String destinationCity) {
 		this.destinationCity = destinationCity;
 	}
+	
 	public Time getDepatureTime() {
 		return departureTime;
 	}
+	
 	public void setDepatureTime(Time depatureTime) {
 		this.departureTime = depatureTime;
 	}
+	
 	public Time getArrivalTime() {
 		return arrivalTime;
 	}
+	
 	public void setArrivalTime(Time arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
+	
 	public Date getDepartureDate() {
 		return departureDate;
 	}
+	
 	public void setDepartureDate(Date departureDate) {
 		this.departureDate = departureDate;
 	}
+	
 	public Date getArrivalDate() {
 		return arrivalDate;
 	}
+	
 	public void setArrivalDate(Date arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
+	
 	public int getFlightNumber() {
 		return flightNumber;
 	}
+	
 	public void setFlightNumber(int flightNumber) {
 		this.flightNumber = flightNumber;
 	}
+	
 	public int getFlightCapacity() {
 		return flightCapacity;
 	}
+	
 	public void setFlightCapacity(int flightCapacity) {
 		this.flightCapacity = flightCapacity;
 	}
+	
 	public int getSeatsOpen() {
 		return seatsOpen;
 	}
+	
 	public void setSeatsOpen(int seatsOpen) {
 		this.seatsOpen = seatsOpen;
 	}
+	
 	public int getSeatsTaken() {
 		return seatsTaken;
 	}
+	
 	public void setSeatsTaken(int seatsTaken) {
 		this.seatsTaken = seatsTaken;
 	}
