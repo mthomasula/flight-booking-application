@@ -269,38 +269,47 @@ public class SearchPage extends Application implements EventHandler<ActionEvent>
 		});
 		
 		TableColumn<Flight, Integer> column1 = new TableColumn<Flight, Integer>("Flight Number");
+		
 		column1.setCellValueFactory(new PropertyValueFactory<>("flightNumber"));
 		column1.setMinWidth(128.88);
 
 		TableColumn<Flight, String> column2 = new TableColumn<Flight, String>("Airline");
+		
 		column2.setCellValueFactory(new PropertyValueFactory<>("Airline"));
 		column2.setMinWidth(128.88);
 
 		TableColumn<Flight, String> column3 = new TableColumn<Flight, String>("Origin City");
+		
 		column3.setCellValueFactory(new PropertyValueFactory<>("originCity"));
 		column3.setMinWidth(128.88);
 
 		TableColumn<Flight, String> column4 = new TableColumn<Flight, String>("Destination City");
+		
 		column4.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
 		column4.setMinWidth(128.88);
 
 		TableColumn<Flight, Date> column5 = new TableColumn<Flight, Date>("Departure Date");
+		
 		column5.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
 		column5.setMinWidth(128.88);
 
 		TableColumn<Flight, Time> column6 = new TableColumn<Flight, Time>("Departure Time");
+		
 		column6.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
 		column6.setMinWidth(128.88);
 
 		TableColumn<Flight, Date> column7 = new TableColumn<Flight, Date>("Arrival date");
+		
 		column7.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
 		column7.setMinWidth(128.88);
 
 		TableColumn<Flight, Time> column8 = new TableColumn<Flight, Time>("Arrival Time");
+		
 		column8.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
 		column8.setMinWidth(128.88);
 
 		TableColumn<Flight, Integer> column9 = new TableColumn<Flight, Integer>("Seats Available");
+		
 		column9.setCellValueFactory(new PropertyValueFactory<>("seatsAvailable"));
 		column9.setMinWidth(128.88);
 		
@@ -339,6 +348,8 @@ public class SearchPage extends Application implements EventHandler<ActionEvent>
 
 	}
 	
+	
+	//choice box to specify search criteria
 	public String getChoice(ChoiceBox<String> dropdown) {
 
 		String dbSearch = "";

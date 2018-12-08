@@ -2,9 +2,13 @@ package BusinessLogic;
 
 public class City {
 	
-	private String cityName;
-	private String location;
-	private String cityID;
+	private String cityName;     // Atlanta
+	private String location;     // Georgia
+	private String cityID;		// ATL
+	
+	
+	
+//Constructors
 	
 	public City() {
 		cityName ="Los Angeles";
@@ -13,12 +17,17 @@ public class City {
 		
 	}
 	
-	public City(String a, String b, String c) {
-		cityName =a;
-		location =b;
-		cityID = c;
+	
+	public City(String cityName, String location, String cityID) {
+		this.cityName = cityName;
+		this.location = location;
+		this.cityID = cityID;
 		
 	}	
+	
+	
+	
+//Mutators
 	
 	public String getCityName() {
 		return cityName;
@@ -46,3 +55,7 @@ public class City {
 	}
 	
 }
+
+
+
+

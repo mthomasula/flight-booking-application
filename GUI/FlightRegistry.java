@@ -20,13 +20,25 @@ import javafx.scene.layout.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
 
+
+
 public class FlightRegistry extends Application implements EventHandler<ActionEvent> {
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args)  {
 		
 		launch(args);
 		
 	}
+	
+	
+	
+	
+	
 	
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -115,10 +127,17 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 		seatsOpenTxtField.setLayoutY(310);
 		seatsOpenTxtField.setPromptText("Enter the Capacity");
 
+		
+		
+		
+		
+	//Return to home page
 		Button returnHome = new Button("Return to main page");
 		returnHome.setLayoutX(400);
 		returnHome.setLayoutY(350);
 		returnHome.setOnAction(e -> {
+			
+			
 			MainPage mainPage = new MainPage();
 			try {
 				mainPage.start(primaryStage);
@@ -126,6 +145,11 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 				
 			}
 		});
+	//	
+		
+		
+		
+		
 		
 		Button create = new Button("Create Flight");
 		create.setLayoutX(220);
@@ -137,11 +161,18 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 						"jdbc:mysql://flightproject.cwnzf8egwsfw.us-east-2.rds.amazonaws.com:3306/flightdatabase", "root",
 						"password");
 				
+				
+				
+				
+				
 				String sqlFightCheck = "select * From Flights where number = '"
 						+ flightNumberTxtField.getText() + "'";
 
-				String sqlFlightCreate = "INSERT INTO Flights(num, airline, origin_city, destination_city, departure_time`, arrival_time"
-						+ "departure_date, arrival_date, seats_open) VALUES('"
+				
+		//Create new flight 
+				String sqlFlightCreate = "INSERT INTO Flights(num, airline, origin_city, destination_city, departure_time, arrival_time"
+						+ "departure_date, arrival_date, seats_open)"
+						+ " VALUES('"
 						+ flightNumberTxtField.getText() + "', '"+ airlineTxtField.getText() + "', '" 
 						+ originCityTxtField.getText() + "', '" + destinationCityTxtField.getText() + "' , '"
 						+ departureDateTxtField.getText() + "', '" + departureTimeTxtField.getText() + "', '"
@@ -150,7 +181,7 @@ public class FlightRegistry extends Application implements EventHandler<ActionEv
 
 				Statement myStat = myConn.createStatement();
 				
-				;
+				
 				ResultSet myRs;
 				myRs = myStat.executeQuery(sqlFightCheck);
 				int count = 0;

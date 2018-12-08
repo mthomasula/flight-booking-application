@@ -6,10 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/rabin/git/FlightAppProject/Database/mysql-connector-java-5.1.47-bin.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="Database/mysql-connector-java-8.0.13.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
