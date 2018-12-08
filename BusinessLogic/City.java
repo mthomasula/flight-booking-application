@@ -16,7 +16,7 @@ public class City {
 	public City(String a, String b, String c) {
 		cityName =a;
 		location =b;
-		cityID = c;
+		cityID =c;
 		
 	}	
 	
