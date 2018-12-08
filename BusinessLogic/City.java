@@ -17,11 +17,18 @@ public class City {
 		
 	}
 	
+<<<<<<< HEAD
 	
 	public City(String cityName, String location, String cityID) {
 		this.cityName = cityName;
 		this.location = location;
 		this.cityID = cityID;
+=======
+	public City(String a, String b, String c) {
+		cityName =a;
+		location =b;
+		cityID =c;
+>>>>>>> branch 'master' of https://github.com/rabinchowdhury/FlightAppProject.git
 		
 	}	
 	
